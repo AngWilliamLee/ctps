@@ -1,8 +1,9 @@
 class Character:
 
-    def __init__(self, _type, health, items=None):
+    def __init__(self, _type, health, strength, items=None):
         self._type = _type
         self.health = health
+        self.strength = strength
         self.items = items or []
 
 
@@ -31,7 +32,7 @@ class Character:
 
 class Player(Character):
 
-    def __init__(self, health, strength, items=[]):
+    def __init__(self, health, strength, items=None):
         super().__init__("Player", health, strength, items)
 
 
