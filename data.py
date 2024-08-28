@@ -1,11 +1,11 @@
+import json
+
 import room
 import character
-import json
 
 
 def createRooms() -> list[room.Room]:
-    """
-    Must follow order of room: Dungeon, Kitchen, Hall, Toilet, Bedroom
+    """Must follow order of room: Dungeon, Kitchen, Hall, Toilet, Bedroom
     Store Name & Number of enemies
     """
 

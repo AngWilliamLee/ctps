@@ -1,6 +1,4 @@
-# Import statements
 import ctps
-
 
 if __name__ == "__main__":
     game = ctps.Game()
