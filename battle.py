@@ -30,16 +30,15 @@ class Battle:
             print("All soldiers in the room are defeated!")
         print("Battle over!")
 
-    def attack(self, attacker, defender):
+    def attack(self, attacker, defender) -> None:
         defender.receive_damage(attacker.damage)
-        if isinstance(attacker, character.Player):
-            print(
-                f"You attacked the {defender.get_type()}! {defender.get_type()} health: {defender.get_health()}"
-            )
+        print(self.attack_report(attacker, defender))
+
+    def attack_report(self, attacker, defender) -> str:
+        if attacker.get_type() == "Player":
+            return f"You attacked the {defender.get_type()}! {defender.get_type()} health: {defender.get_health()}"
         else:
-            print(
-                f"{attacker.get_type()} attacked you! Your health: {defender.get_health()}"
-            )
+            return f"{attacker.get_type()} attacked you! Your health: {defender.get_health()}"
 
     def battle_over(self):
         return self.player.isdead() or self.room.all_enemies_defeated()
