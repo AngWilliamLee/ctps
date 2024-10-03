@@ -1,4 +1,5 @@
 import json
+import random
 
 import room
 import character
@@ -29,3 +30,8 @@ def createPlayer() -> character.Player:
 def createPrincess() -> character.Princess:
     record = gamedata["princess"]
     return character.Princess(record["hp"])
+
+def createSoldier() -> character.Soldier:
+    record = gamedata["soldier"]
+    min_str, max_str = record["str"]
+    return character.Soldier(record["hp"], random.randint(min_str, max_str))

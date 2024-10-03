@@ -3,7 +3,7 @@ import random
 
 class Character:
 
-    def __init__(self, _type, health, damage=0):
+    def __init__(self, health, damage=0):
         self._type = _type
         self.health = health
         self.damage = damage
@@ -43,9 +43,8 @@ class Player(Character):
 
 class Soldier(Character):
 
-    def __init__(self, health):
-        super().__init__("Soldier", health)
-        self.damage = random.randint(2, 7)
+    def __init__(self, health, damage):
+        super().__init__("Soldier", health, damage)
 
 
 class Princess(Character):

@@ -8,6 +8,10 @@
         "hp": 20,
         "str": 5
     },
+    "soldier": {
+        "hp": 20,
+        "str": [2, 7]
+    },
     "room": {
         "Dungeon": {"num_enemies": 3},
         "Kitchen": {"num_enemies": 3},
