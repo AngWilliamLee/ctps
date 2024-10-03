@@ -17,7 +17,7 @@ def createRooms() -> list[room.Room]:
     for name, roomdata in gamedata.items():
         temp = room.Room(name)
         for _ in range(roomdata["num_enemies"]):
-            temp.add_enemy(character.Soldier(20))
+            temp.add_enemy(createSoldier())
         list_of_rooms.append(temp)
     temp.add_enemy(character.Princess(1))
 
