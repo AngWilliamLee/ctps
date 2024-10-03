@@ -6,31 +6,29 @@ import battle
 class Game:
 
     def __init__(self):
-        self.interface = None  #
+        self.interface = interface.Interface()
         self.player = None
         self.princess = None
         self.rooms = []
         self.now = 0
 
     def setup(self):
-        self.interface = interface.Interface()  #
         self.player = data.createPlayer()
         self.rooms = data.createRooms()
         self.princess = self.rooms[-1].get_enemies()[-1]
-        if self.interface.start_menu(
-        ) == 'exit':  #if interface.start_menu() == 'exit':
-            self.interface.exit_screen()  #interface.exit_screen()
+        if self.interface.prompt_menu('start') == 'exit':
+            self.interface.exit_screen()
             exit()
 
     def isover(self):
         if self.player.isdead():
-            self.interface.death_msg()  #interface.death_msg()
+            self.interface.death_msg()
             return True
         elif self.princess.isdead():
             if all([room.all_enemies_defeated() for room in self.rooms]):
-                self.interface.win_msg()  #interface.win_msg()
+                self.interface.win_msg()
             else:
-                self.interface.caught_msg()  #interface.caught_msg()
+                self.interface.caught_msg()
             return True
         return False
 
