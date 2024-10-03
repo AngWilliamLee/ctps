@@ -5,6 +5,8 @@ import script
 C = TypeVar("C")
 
 
+report = print
+
 def prompt_choice(message: str, options: list[str], prompt: str) -> str:
     """Helper function to prompt the user for a choice."""
     print(message)
