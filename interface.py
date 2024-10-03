@@ -10,8 +10,11 @@ def prompt_choice(message: str, options: list[str], prompt: str) -> str:
     print(message)
     for i, value in enumerate(options, start=1):
         print(f"{i}: {value}")
-    choice = int(input(prompt))
-    return options[choice - 1]
+    choice = input(prompt)
+    while not choice.isdecimal() or int(choice) - 1 not in range(len(options)):
+        print("Invalid choice.")
+        choice = input(prompt)
+    return options[int(choice) - 1]
 
 
 
