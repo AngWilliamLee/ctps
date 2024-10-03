@@ -19,17 +19,23 @@ class Game:
             interface.exit_screen()
             exit()
 
-    def isover(self):
+    def isover(self) -> bool:
+        if not self.player or not self.princess:
+            # Game has not been set up
+            return False
+        return self.player.isdead() or self.princess.isdead()
+
+    def end_game(self) -> None:
+        if not self.player or not self.princess:
+            # Game has not been set up
+            return
         if self.player.isdead():
             interface.death_msg()
-            return True
         elif self.princess.isdead():
             if all([room.all_enemies_defeated() for room in self.rooms]):
                 interface.win_msg()
             else:
                 interface.caught_msg()
-            return True
-        return False
 
     def next_room(self):
         if self.now < len(self.rooms) - 1:

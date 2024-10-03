@@ -6,3 +6,4 @@ if __name__ == "__main__":
 
     while not game.isover():
         game.get_choice()
+    game.end_game()
