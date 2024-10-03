@@ -19,10 +19,11 @@ class Battle:
             attacker = self.player
             defender = self.room.get_enemies()[0]
             self.attack(attacker, defender)
-            if attacker == self.player and defender.isdead():
+            if defender.isdead():
                 print(interface.death_msg(defender.get_type()))
-                self.room.remove_enemy()
-                defender = self.room.get_enemies()[0]
+                if attacker == self.player:
+                    self.room.remove_enemy()
+                    defender = self.room.get_enemies()[0]
             attacker, defender = defender, attacker
             time.sleep(0.1)
         if self.room.all_enemies_defeated():
