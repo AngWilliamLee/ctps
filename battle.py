@@ -30,7 +30,7 @@ class Battle:
         print(
             f"You attacked the {target.get_type()}! {target.get_type()} health: {target.get_health()}"
         )
-        if target.get_health() <= 0:
+        if target.isdead():
             if target.get_type() == "Princess":
                 print("Princess is now unconcious! Time to escape!")
             else:
@@ -48,4 +48,4 @@ class Battle:
         )
 
     def battle_over(self):
-        return self.player.get_health() <= 0 or self.room.all_enemies_defeated()
+        return self.player.isdead() or self.room.all_enemies_defeated()
