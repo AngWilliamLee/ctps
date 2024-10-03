@@ -1,6 +1,3 @@
-import random
-
-
 class Character:
 
     def __init__(self, health, damage=0):
@@ -14,20 +11,20 @@ class Character:
         character.receive_damage(self.damage)
         # print("Die")
 
-    def receive_damage(self, damage):
+    def receive_damage(self, damage: int) -> None:
         """
         Remove health
         """
         self.health -= damage
         # print("Ouch")
 
-    def isdead(self):
+    def isdead(self) -> bool:
         """
         Returns status of character (dead or alive)
         """
         return self.health <= 0
 
-    def get_health(self):
+    def get_health(self) -> int:
         return self.health
 
     def get_type(self) -> str:
