@@ -22,6 +22,8 @@ class Battle:
                     else:
                         print("Soldier defeated!")
                     self.room.remove_enemy()
+                    defender = self.room.get_enemies()[0]
+                attacker, defender = defender, attacker
                 time.sleep(0.1)
             if self.room.all_enemies_defeated():
                 print("All soldiers in the room are defeated!")
