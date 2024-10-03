@@ -63,8 +63,7 @@ class Game:
     def get_choice(self):
         "Dispalys and gets player choice. Display results afterwards"
         room_name = self.get_now_room_name().lower()
-        mtd = getattr(self.interface, room_name + "_menu")
-        choice = mtd()
+        choice = self.interface.prompt_menu(room_name)
         print(choice + '\n')
         if choice == 'Move to next room':
             self.next_room()

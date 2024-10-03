@@ -5,7 +5,7 @@ import script
 C = TypeVar("C")
 
 
-def prompt_choice(message: str, options: list[C], prompt: str) -> C:
+def prompt_choice(message: str, options: list[str], prompt: str) -> str:
     """Helper function to prompt the user for a choice."""
     print(message)
     for i, value in enumerate(options, start=1):
@@ -19,27 +19,12 @@ class Interface:
     def prompt(self):
         return script.prompt
 
-    def start_menu(self):
-        return prompt_choice(script.menu['start']['title'], script.menu['start']["options"], script.prompt)
-
     def combat_menu(self, player_health, enemy_health):
         print(f"Your health: {player_health}")
         print(f"Enemy health: {enemy_health}")
 
-    def dungeon_menu(self):
-        return prompt_choice(script.menu['dungeon']['message'], script.menu['dungeon']["options"], script.prompt)
-
-    def kitchen_menu(self):
-        return prompt_choice(script.menu['kitchen']['message'], script.menu['kitchen']["options"], script.prompt)
-
-    def hall_menu(self):
-        return prompt_choice(script.menu['hall']['message'], script.menu['hall']["options"], script.prompt)
-
-    def toilet_menu(self):
-        return prompt_choice(script.menu['toilet']['message'], script.menu['toilet']["options"], script.prompt)
-
-    def bedroom_menu(self):
-        return prompt_choice(script.menu['bedroom']['message'], script.menu['bedroom']["options"], script.prompt)
+    def prompt_menu(self, room_name: str) -> str:
+        return prompt_choice(script.menu[room_name]['message'], script.menu[room_name]["options"], script.prompt)
 
     def exit_screen(self):
         print(script.exit_screen['message'])
