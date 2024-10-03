@@ -30,7 +30,7 @@ class Game:
             # Game has not been set up
             return
         if self.player.isdead():
-            interface.death_msg()
+            pass  # death msg already displayed in battle
         elif self.princess.isdead():
             if all([room.all_enemies_defeated() for room in self.rooms]):
                 interface.win_msg()

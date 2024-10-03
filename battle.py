@@ -1,6 +1,7 @@
 import time
 
 import character
+import interface
 
 
 class Battle:
@@ -19,10 +20,7 @@ class Battle:
             defender = self.room.get_enemies()[0]
             self.attack(attacker, defender)
             if defender.isdead():
-                if defender.get_type() == "Princess":
-                    print("Princess is now unconcious! Time to escape!")
-                else:
-                    print("Soldier defeated!")
+                print(interface.death_msg(defender.get_type()))
                 self.room.remove_enemy()
                 defender = self.room.get_enemies()[0]
             attacker, defender = defender, attacker
