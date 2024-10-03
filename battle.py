@@ -10,26 +10,26 @@ class Battle:
         self.room = room
 
     def battle_start(self):
-        if not self.room.all_enemies_defeated():
-            print("YOU FOUND ENEMIES!!!!")
-            while not self.battle_over():
-                attacker = self.player
-                defender = self.room.get_enemies()[0]
-                self.attack(attacker, defender)
-                if defender.isdead():
-                    if defender.get_type() == "Princess":
-                        print("Princess is now unconcious! Time to escape!")
-                    else:
-                        print("Soldier defeated!")
-                    self.room.remove_enemy()
-                    defender = self.room.get_enemies()[0]
-                attacker, defender = defender, attacker
-                time.sleep(0.1)
-            if self.room.all_enemies_defeated():
-                print("All soldiers in the room are defeated!")
-            print("Battle over!")
-        else:
+        if self.room.all_enemies_defeated():
             print("All soldiers in the room have been defeated already!")
+            return
+        print("YOU FOUND ENEMIES!!!!")
+        while not self.battle_over():
+            attacker = self.player
+            defender = self.room.get_enemies()[0]
+            self.attack(attacker, defender)
+            if defender.isdead():
+                if defender.get_type() == "Princess":
+                    print("Princess is now unconcious! Time to escape!")
+                else:
+                    print("Soldier defeated!")
+                self.room.remove_enemy()
+                defender = self.room.get_enemies()[0]
+            attacker, defender = defender, attacker
+            time.sleep(0.1)
+        if self.room.all_enemies_defeated():
+            print("All soldiers in the room are defeated!")
+        print("Battle over!")
 
     def attack(self, attacker, defender):
         attacker.attack(defender)
