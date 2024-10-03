@@ -6,7 +6,6 @@ import battle
 class Game:
 
     def __init__(self):
-        self.interface = interface.Interface()
         self.player = None
         self.princess = None
         self.rooms = []
@@ -16,19 +15,19 @@ class Game:
         self.player = data.createPlayer()
         self.rooms = data.createRooms()
         self.princess = self.rooms[-1].get_enemies()[-1]
-        if self.interface.prompt_menu('start') == 'exit':
-            self.interface.exit_screen()
+        if interface.prompt_menu('start') == 'exit':
+            interface.exit_screen()
             exit()
 
     def isover(self):
         if self.player.isdead():
-            self.interface.death_msg()
+            interface.death_msg()
             return True
         elif self.princess.isdead():
             if all([room.all_enemies_defeated() for room in self.rooms]):
-                self.interface.win_msg()
+                interface.win_msg()
             else:
-                self.interface.caught_msg()
+                interface.caught_msg()
             return True
         return False
 
@@ -61,7 +60,7 @@ class Game:
     def get_choice(self):
         "Dispalys and gets player choice. Display results afterwards"
         room_name = self.get_now_room_name().lower()
-        choice = self.interface.prompt_menu(room_name)
+        choice = interface.prompt_menu(room_name)
         print(choice + '\n')
         if choice == 'Move to next room':
             self.next_room()
