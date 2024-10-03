@@ -5,5 +5,6 @@ if __name__ == "__main__":
     game.setup()
 
     while not game.isover():
-        game.get_choice()
+        choice = game.get_choice()
+        game.do_choice(choice)
     game.end_game()

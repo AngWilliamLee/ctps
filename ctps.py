@@ -63,20 +63,18 @@ class Game:
         else:
             return "WALL"
 
-    def get_choice(self):
-        "Dispalys and gets player choice. Display results afterwards"
+    def get_choice(self) -> str:
+        """Prompts player to make a choice."""
         room_name = self.get_now_room_name().lower()
         choice = interface.prompt_menu(room_name)
-        print(choice + '\n')
+        return choice
+
+    def do_choice(self, choice: str) -> None:
+        print("Your choice:", choice)
         if choice == 'Move to next room':
             self.next_room()
         elif choice == 'Move to previous room':
             self.prev_room()
         elif choice == 'Look around':
-
             combat = battle.Battle(self.player, self.get_now_room())
             combat.battle_start()
-
-        else:
-            print("Invalid choice")
-        print()
