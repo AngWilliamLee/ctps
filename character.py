@@ -4,7 +4,6 @@ import random
 class Character:
 
     def __init__(self, health, damage=0):
-        self._type = _type
         self.health = health
         self.damage = damage
 
@@ -31,23 +30,20 @@ class Character:
     def get_health(self):
         return self.health
 
-    def get_type(self):
-        return self._type
+    def get_type(self) -> str:
+        raise NotImplementedError
 
 
 class Player(Character):
-
-    def __init__(self, health, damage):
-        super().__init__("Player", health, damage)
+    def get_type(self) -> str:
+        return "Player"
 
 
 class Soldier(Character):
-
-    def __init__(self, health, damage):
-        super().__init__("Soldier", health, damage)
+    def get_type(self) -> str:
+        return "Soldier"
 
 
 class Princess(Character):
-
-    def __init__(self, health):
-        super().__init__("Princess", health)
+    def get_type(self) -> str:
+        return "Princess"
