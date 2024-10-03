@@ -46,9 +46,6 @@ class Battle:
         print(
             f"{source.get_type()} attacked you! Your health: {target.get_health()}"
         )
-        # if target.get_health() <= 0:
-        #     print("You died! WEAK!")
 
     def battle_over(self):
-        return self.player.get_health() <= 0 or self.room.all_enemies_defeated(
-        )
+        return self.player.get_health() <= 0 or self.room.all_enemies_defeated()
