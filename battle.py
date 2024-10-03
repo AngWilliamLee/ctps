@@ -41,29 +41,5 @@ class Battle:
                 f"{attacker.get_type()} attacked you! Your health: {defender.get_health()}"
             )
 
-    # def player_attack(self):
-    #     source = self.player
-    #     target = self.room.get_enemies()[0]
-    #     source.attack(target)
-    #     print(
-    #         f"You attacked the {target.get_type()}! {target.get_type()} health: {target.get_health()}"
-    #     )
-    #     if target.isdead():
-    #         if target.get_type() == "Princess":
-    #             print("Princess is now unconcious! Time to escape!")
-    #         else:
-    #             print("Soldier defeated!")
-    #         self.room.remove_enemy()
-    #     if self.room.all_enemies_defeated():
-    #         print("All soldiers in the room are defeated!")
-
-    # def enemy_attack(self):
-    #     source = self.room.get_enemies()[0]
-    #     target = self.player
-    #     source.attack(target)
-    #     print(
-    #         f"{source.get_type()} attacked you! Your health: {target.get_health()}"
-    #     )
-
     def battle_over(self):
         return self.player.isdead() or self.room.all_enemies_defeated()
