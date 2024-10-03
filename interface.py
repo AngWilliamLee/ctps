@@ -20,26 +20,26 @@ class Interface:
         return script.prompt
 
     def start_menu(self):
-        return prompt_choice(script.start_menu['title'], script.start_menu["options"], script.prompt)
+        return prompt_choice(script.menu['start']['title'], script.menu['start']["options"], script.prompt)
 
     def combat_menu(self, player_health, enemy_health):
         print(f"Your health: {player_health}")
         print(f"Enemy health: {enemy_health}")
 
     def dungeon_menu(self):
-        return prompt_choice(script.dungeon_menu['message'], script.dungeon_menu["options"], script.prompt)
+        return prompt_choice(script.menu['dungeon']['message'], script.menu['dungeon']["options"], script.prompt)
 
     def kitchen_menu(self):
-        return prompt_choice(script.kitchen_menu['message'], script.kitchen_menu["options"], script.prompt)
+        return prompt_choice(script.menu['kitchen']['message'], script.menu['kitchen']["options"], script.prompt)
 
     def hall_menu(self):
-        return prompt_choice(script.hall_menu['message'], script.hall_menu["options"], script.prompt)
+        return prompt_choice(script.menu['hall']['message'], script.menu['hall']["options"], script.prompt)
 
     def toilet_menu(self):
-        return prompt_choice(script.toilet_menu['message'], script.toilet_menu["options"], script.prompt)
+        return prompt_choice(script.menu['toilet']['message'], script.menu['toilet']["options"], script.prompt)
 
     def bedroom_menu(self):
-        return prompt_choice(script.bedroom_menu['message'], script.bedroom_menu["options"], script.prompt)
+        return prompt_choice(script.menu['bedroom']['message'], script.menu['bedroom']["options"], script.prompt)
 
     def exit_screen(self):
         print(script.exit_screen['message'])
