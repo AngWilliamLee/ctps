@@ -4,13 +4,6 @@ class Character:
         self.health = health
         self.damage = damage
 
-    def attack(self, character):
-        """
-        Deal damage to another character object
-        """
-        character.receive_damage(self.damage)
-        # print("Die")
-
     def receive_damage(self, damage: int) -> None:
         """
         Remove health

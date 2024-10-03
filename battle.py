@@ -31,7 +31,7 @@ class Battle:
         print("Battle over!")
 
     def attack(self, attacker, defender):
-        attacker.attack(defender)
+        defender.receive_damage(attacker.damage)
         if isinstance(attacker, character.Player):
             print(
                 f"You attacked the {defender.get_type()}! {defender.get_type()} health: {defender.get_health()}"
