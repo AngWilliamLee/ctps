@@ -15,9 +15,6 @@ class Game:
         self.player = data.createPlayer()
         self.rooms = data.createRooms()
         self.princess = self.rooms[-1].get_enemies()[-1]
-        if interface.prompt_menu('start') == 'exit':
-            interface.exit_screen()
-            exit()
 
     def isover(self) -> bool:
         if not self.player or not self.princess:
