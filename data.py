@@ -14,7 +14,8 @@ def createRooms() -> list[room.Room]:
     """
 
     list_of_rooms = []
-    for name, roomdata in gamedata.items():
+    for name, roomdata in gamedata["room"].items():
+        # breakpoint()
         temp = room.Room(name)
         for _ in range(roomdata["num_enemies"]):
             temp.add_enemy(createSoldier())
