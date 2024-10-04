@@ -5,7 +5,8 @@ exit_screen = {'message': 'Exiting game...... See you next time!'}
 menu = {
     'start': {
         'title': "Capture The Princess S\n",
-        'options': ['start', 'exit']
+        'options': ['start', 'exit'],
+        'message': ""
     },
     'dungeon': {
         'message': """
