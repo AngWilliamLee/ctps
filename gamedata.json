@@ -1,0 +1,22 @@
+{
+    "player": {
+        "hp": 300,
+        "str": 5,
+        "items": []
+    },
+    "princess": {
+        "hp": 20,
+        "str": 0
+    },
+    "soldier": {
+        "hp": 20,
+        "str": [2, 7]
+    },
+    "room": {
+        "Dungeon": {"num_enemies": 3},
+        "Kitchen": {"num_enemies": 3},
+        "Hall": {"num_enemies": 3},
+        "Toilet": {"num_enemies": 3},
+        "Bedroom": {"num_enemies": 3}
+    }
+}

@@ -1,52 +1,39 @@
-import random
-
 class Character:
 
-    def __init__(self, _type, health, damage = 0):
-        self._type = _type
+    def __init__(self, health, damage=0):
         self.health = health
         self.damage = damage
 
-
-    def attack(self, character):
-        """
-        Deal damage to another character object
-        """
-        character.receive_damage(self.damage)
-        # print("Die")
-
-    def receive_damage(self, damage):
+    def receive_damage(self, damage: int) -> None:
         """
         Remove health
         """
         self.health -= damage
         # print("Ouch")
 
-    def isdead(self):
+    def isdead(self) -> bool:
         """
         Returns status of character (dead or alive)
         """
         return self.health <= 0
 
-    def get_health(self):
+    def get_health(self) -> int:
         return self.health
 
-    def get_type(self):
-        return self._type
+    def get_type(self) -> str:
+        raise NotImplementedError
+
 
 class Player(Character):
-
-    def __init__(self, health, damage):
-        super().__init__("Player", health, damage)
+    def get_type(self) -> str:
+        return "Player"
 
 
 class Soldier(Character):
+    def get_type(self) -> str:
+        return "Soldier"
 
-    def __init__(self, health):
-        super().__init__("Soldier", health)
-        self.damage = random.randint(2,7)
 
 class Princess(Character):
-
-    def __init__(self, health):
-        super().__init__("Princess", health)
+    def get_type(self) -> str:
+        return "Princess"
